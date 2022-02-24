@@ -3,6 +3,7 @@ package topsdk
 import (
 	"bytes"
 	"fmt"
+	"github.com/liu8534584/topsdk/util"
 	"io"
 	"io/ioutil"
 	"log"
@@ -11,39 +12,35 @@ import (
 	"net/url"
 	"strings"
 	"time"
-	"topsdk/util"
 )
 
 type TopClient struct {
-	AppKey string
-	AppSecret string
-	ServerUrl string
-	Format string
-	SignMethod string
+	AppKey         string
+	AppSecret      string
+	ServerUrl      string
+	Format         string
+	SignMethod     string
 	ConnectTimeout int64
-	ReadTimeout int64
-	Version string
-	Simplify bool
+	ReadTimeout    int64
+	Version        string
+	Simplify       bool
 }
 
-func NewDefaultTopClient(AppKey string,AppSecret string,ServerUrl string, connectTimeount int64, readTimeout int64) TopClient {
+func NewDefaultTopClient(AppKey string, AppSecret string, ServerUrl string, connectTimeount int64, readTimeout int64) TopClient {
 	return TopClient{
-		AppKey: AppKey,
-		AppSecret: AppSecret,
-		ServerUrl: ServerUrl,
-		Format: "json",
-		SignMethod: "hmac-sha256",
+		AppKey:         AppKey,
+		AppSecret:      AppSecret,
+		ServerUrl:      ServerUrl,
+		Format:         "json",
+		SignMethod:     "hmac-sha256",
 		ConnectTimeout: connectTimeount,
-		ReadTimeout: readTimeout,
-		Version: "2.0",
-		Simplify: true,
+		ReadTimeout:    readTimeout,
+		Version:        "2.0",
+		Simplify:       true,
 	}
 }
 
-
-
-
-func (client *TopClient) ExecuteWithSession(method string,data map[string]interface{},fileData map[string]interface{},session string) (string,error){
+func (client *TopClient) ExecuteWithSession(method string, data map[string]interface{}, fileData map[string]interface{}, session string) (string, error) {
 	var publicParam = make(map[string]interface{})
 	publicParam["method"] = method
 	publicParam["app_key"] = client.AppKey
@@ -60,94 +57,90 @@ func (client *TopClient) ExecuteWithSession(method string,data map[string]interf
 	// 构建url
 	serverUrl, _ := url.Parse(client.ServerUrl)
 	urlValues := url.Values{}
-	urlValues.Add("sign",sign)
-	for k,v := range publicParam{
-		urlValues.Add(k,fmt.Sprint(v))
+	urlValues.Add("sign", sign)
+	for k, v := range publicParam {
+		urlValues.Add(k, fmt.Sprint(v))
 	}
 	serverUrl.RawQuery = urlValues.Encode()
 	urlPath := serverUrl.String()
 	// 构建body
 	if fileData != nil && len(fileData) > 0 {
-		return doPostWithFile(urlPath,data,fileData,client.ConnectTimeout)
-	}else {
+		return doPostWithFile(urlPath, data, fileData, client.ConnectTimeout)
+	} else {
 		return doPost(urlPath, data, client.ConnectTimeout)
 	}
 
 }
 
-func doPost(urlPath string,data map[string]interface{},timeout int64) (string,error){
+func doPost(urlPath string, data map[string]interface{}, timeout int64) (string, error) {
 	bodyParam := url.Values{}
-	for k,v := range data{
-		bodyParam.Add(k,fmt.Sprint(v))
+	for k, v := range data {
+		bodyParam.Add(k, fmt.Sprint(v))
 	}
 	httpClient := http.Client{
 		Timeout: time.Duration(timeout) * time.Millisecond,
 	}
-	resp, err := httpClient.Post(urlPath,"application/x-www-form-urlencoded",strings.NewReader(bodyParam.Encode()))
+	resp, err := httpClient.Post(urlPath, "application/x-www-form-urlencoded", strings.NewReader(bodyParam.Encode()))
 	if resp != nil {
 		defer resp.Body.Close()
 	}
-	if(err != nil){
-		log.Fatal("http.PostForm error",err)
-		return "",err
+	if err != nil {
+		log.Fatal("http.PostForm error", err)
+		return "", err
 	}
 	body, err := ioutil.ReadAll(resp.Body)
-	if(err != nil){
-		log.Fatalln("ioutil.ReadAll",err)
-		return "",err
+	if err != nil {
+		log.Fatalln("ioutil.ReadAll", err)
+		return "", err
 	}
-	return string(body),nil
+	return string(body), nil
 }
 
-func doPostWithFile(urlPath string,data map[string]interface{},fileData map[string]interface{},timeout int64) (string,error){
+func doPostWithFile(urlPath string, data map[string]interface{}, fileData map[string]interface{}, timeout int64) (string, error) {
 	bodyBuf := &bytes.Buffer{}
 	writer := multipart.NewWriter(bodyBuf)
-	for k,v := range data{
+	for k, v := range data {
 		err := writer.WriteField(k, fmt.Sprint(v))
 		if err != nil {
 			return "", err
 		}
 	}
-	for k,v := range fileData {
-		value , ok := v.([]byte)
+	for k, v := range fileData {
+		value, ok := v.([]byte)
 		if ok {
 			fileWriter, err := writer.CreateFormFile(k, "file")
 			if err != nil {
-				return "",err
+				return "", err
 			}
 			_, err = io.Copy(fileWriter, bytes.NewReader(value))
 			if err != nil {
-				return "",err
+				return "", err
 			}
 		}
 	}
 
 	err := writer.Close()
-	if(err != nil){
-		return "",err
+	if err != nil {
+		return "", err
 	}
 
 	httpClient := http.Client{
 		Timeout: time.Duration(timeout) * time.Millisecond,
 	}
-	resp, err := httpClient.Post(urlPath,writer.FormDataContentType(),bodyBuf)
+	resp, err := httpClient.Post(urlPath, writer.FormDataContentType(), bodyBuf)
 	if err != nil {
-		log.Fatal("http.PostForm error",err)
-		return "",err
+		log.Fatal("http.PostForm error", err)
+		return "", err
 	}
 	defer resp.Body.Close()
 	body, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
-		log.Fatalln("ioutil.ReadAll",err)
-		return "",err
+		log.Fatalln("ioutil.ReadAll", err)
+		return "", err
 	}
-	return string(body),nil
+	return string(body), nil
 }
 
-
-func (client *TopClient) Execute(method string,data map[string]interface{},fileData map[string]interface{}) (string,error){
-	return client.ExecuteWithSession(method,data,fileData,"")
+func (client *TopClient) Execute(method string, data map[string]interface{}, fileData map[string]interface{}) (string, error) {
+	return client.ExecuteWithSession(method, data, fileData, "")
 }
-
-
-
