@@ -2,11 +2,11 @@ package ability407
 
 import (
 	"errors"
+	"github.com/liu8534584/topsdk"
 	"github.com/liu8534584/topsdk/ability407/request"
 	"github.com/liu8534584/topsdk/ability407/response"
 	"github.com/liu8534584/topsdk/util"
 	"log"
-	"topsdk"
 )
 
 type Ability407 struct {

@@ -2,11 +2,11 @@ package ability370
 
 import (
 	"errors"
+	"github.com/liu8534584/topsdk"
 	"github.com/liu8534584/topsdk/ability370/request"
 	"github.com/liu8534584/topsdk/ability370/response"
 	"github.com/liu8534584/topsdk/util"
 	"log"
-	"topsdk"
 )
 
 type Ability370 struct {

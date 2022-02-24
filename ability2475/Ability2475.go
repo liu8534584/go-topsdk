@@ -2,11 +2,11 @@ package ability2475
 
 import (
 	"errors"
+	"github.com/liu8534584/topsdk"
 	"github.com/liu8534584/topsdk/ability2475/request"
 	"github.com/liu8534584/topsdk/ability2475/response"
 	"github.com/liu8534584/topsdk/util"
 	"log"
-	"topsdk"
 )
 
 type Ability2475 struct {
