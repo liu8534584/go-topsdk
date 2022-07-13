@@ -34,7 +34,7 @@ type TaobaoTbkScOptimusMaterialRequest struct {
     ContentSource  *string `json:"content_source,omitempty" required:"false" `
     /*
         商品ID，用于相似商品推荐     */
-    ItemId  *int64 `json:"item_id,omitempty" required:"false" `
+    ItemId  *string `json:"item_id,omitempty" required:"false" `
 }
 
 func (s *TaobaoTbkScOptimusMaterialRequest) SetPageSize(v int64) *TaobaoTbkScOptimusMaterialRequest {
@@ -77,7 +77,7 @@ func (s *TaobaoTbkScOptimusMaterialRequest) SetContentSource(v string) *TaobaoTb
     s.ContentSource = &v
     return s
 }
-func (s *TaobaoTbkScOptimusMaterialRequest) SetItemId(v int64) *TaobaoTbkScOptimusMaterialRequest {
+func (s *TaobaoTbkScOptimusMaterialRequest) SetItemId(v string) *TaobaoTbkScOptimusMaterialRequest {
     s.ItemId = &v
     return s
 }

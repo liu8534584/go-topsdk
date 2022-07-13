@@ -24,7 +24,7 @@ type TaobaoTbkScOptimusMaterialMapData struct {
 
     /*
         商品信息-宝贝id     */
-    ItemId  *int64 `json:"item_id,omitempty" `
+    ItemId  *string `json:"item_id,omitempty" `
 
     /*
         优惠券信息-优惠券总量     */
@@ -408,7 +408,7 @@ func (s *TaobaoTbkScOptimusMaterialMapData) SetCouponStartFee(v string) *TaobaoT
     s.CouponStartFee = &v
     return s
 }
-func (s *TaobaoTbkScOptimusMaterialMapData) SetItemId(v int64) *TaobaoTbkScOptimusMaterialMapData {
+func (s *TaobaoTbkScOptimusMaterialMapData) SetItemId(v string) *TaobaoTbkScOptimusMaterialMapData {
     s.ItemId = &v
     return s
 }

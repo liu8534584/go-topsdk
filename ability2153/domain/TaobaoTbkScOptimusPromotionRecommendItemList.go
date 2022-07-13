@@ -4,7 +4,7 @@ package domain
 type TaobaoTbkScOptimusPromotionRecommendItemList struct {
     /*
         权益推荐商品id     */
-    ItemId  *int64 `json:"item_id,omitempty" `
+    ItemId  *string `json:"item_id,omitempty" `
 
     /*
         商品链接     */
@@ -12,7 +12,7 @@ type TaobaoTbkScOptimusPromotionRecommendItemList struct {
 
 }
 
-func (s *TaobaoTbkScOptimusPromotionRecommendItemList) SetItemId(v int64) *TaobaoTbkScOptimusPromotionRecommendItemList {
+func (s *TaobaoTbkScOptimusPromotionRecommendItemList) SetItemId(v string) *TaobaoTbkScOptimusPromotionRecommendItemList {
     s.ItemId = &v
     return s
 }

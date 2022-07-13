@@ -7,7 +7,7 @@ type TaobaoTbkCouponGetRequest struct {
     Me  *string `json:"me,omitempty" required:"false" `
     /*
         商品ID     */
-    ItemId  *int64 `json:"item_id,omitempty" required:"false" `
+    ItemId  *string `json:"item_id,omitempty" required:"false" `
     /*
         券ID     */
     ActivityId  *string `json:"activity_id,omitempty" required:"false" `
@@ -17,7 +17,7 @@ func (s *TaobaoTbkCouponGetRequest) SetMe(v string) *TaobaoTbkCouponGetRequest {
     s.Me = &v
     return s
 }
-func (s *TaobaoTbkCouponGetRequest) SetItemId(v int64) *TaobaoTbkCouponGetRequest {
+func (s *TaobaoTbkCouponGetRequest) SetItemId(v string) *TaobaoTbkCouponGetRequest {
     s.ItemId = &v
     return s
 }
