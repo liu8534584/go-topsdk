@@ -7,7 +7,7 @@ type TaobaoTbkPrivilegeGetRequest struct {
     AdzoneId  *int64 `json:"adzone_id" required:"true" `
     /*
         淘客商品id defalutValue��-1    */
-    ItemId  *string `json:"item_id,omitempty" required:"false" `
+    ItemId  *interface{} `json:"item_id,omitempty" required:"false" `
     /*
         1：PC，2：无线，默认：１ defalutValue��1    */
     Platform  *int64 `json:"platform,omitempty" required:"false" `
@@ -41,7 +41,7 @@ func (s *TaobaoTbkPrivilegeGetRequest) SetAdzoneId(v int64) *TaobaoTbkPrivilegeG
     s.AdzoneId = &v
     return s
 }
-func (s *TaobaoTbkPrivilegeGetRequest) SetItemId(v string) *TaobaoTbkPrivilegeGetRequest {
+func (s *TaobaoTbkPrivilegeGetRequest) SetItemId(v interface{}) *TaobaoTbkPrivilegeGetRequest {
     s.ItemId = &v
     return s
 }

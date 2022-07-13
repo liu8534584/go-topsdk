@@ -40,7 +40,7 @@ type TaobaoTbkPrivilegeGetMaterialDto struct {
 
     /*
         商品id     */
-    ItemId  *string `json:"item_id,omitempty" `
+    ItemId  *interface{} `json:"item_id,omitempty" `
 
     /*
         商品淘客链接     */
@@ -124,7 +124,7 @@ func (s *TaobaoTbkPrivilegeGetMaterialDto) SetMaxCommissionRate(v string) *Taoba
     s.MaxCommissionRate = &v
     return s
 }
-func (s *TaobaoTbkPrivilegeGetMaterialDto) SetItemId(v string) *TaobaoTbkPrivilegeGetMaterialDto {
+func (s *TaobaoTbkPrivilegeGetMaterialDto) SetItemId(v interface{}) *TaobaoTbkPrivilegeGetMaterialDto {
     s.ItemId = &v
     return s
 }

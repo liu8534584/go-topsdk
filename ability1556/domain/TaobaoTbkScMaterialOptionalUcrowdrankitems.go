@@ -4,7 +4,7 @@ package domain
 type TaobaoTbkScMaterialOptionalUcrowdrankitems struct {
     /*
         物料评估-商品ID，material_id=41377时必填     */
-    ItemId  *string `json:"item_id,omitempty" `
+    ItemId  *interface{} `json:"item_id,omitempty" `
 
     /*
         物料评估-商品佣金率，如：1234表示12.34%，material_id=41377时选填     */
@@ -16,7 +16,7 @@ type TaobaoTbkScMaterialOptionalUcrowdrankitems struct {
 
 }
 
-func (s *TaobaoTbkScMaterialOptionalUcrowdrankitems) SetItemId(v string) *TaobaoTbkScMaterialOptionalUcrowdrankitems {
+func (s *TaobaoTbkScMaterialOptionalUcrowdrankitems) SetItemId(v interface{}) *TaobaoTbkScMaterialOptionalUcrowdrankitems {
     s.ItemId = &v
     return s
 }

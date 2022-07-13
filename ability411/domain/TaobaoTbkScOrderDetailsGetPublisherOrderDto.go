@@ -136,7 +136,7 @@ type TaobaoTbkScOrderDetailsGetPublisherOrderDto struct {
 
     /*
         商品id     */
-    ItemId  *string `json:"item_id,omitempty" `
+    ItemId  *interface{} `json:"item_id,omitempty" `
 
     /*
         推广位管理下的自定义推广位名称     */
@@ -364,7 +364,7 @@ func (s *TaobaoTbkScOrderDetailsGetPublisherOrderDto) SetItemPrice(v string) *Ta
     s.ItemPrice = &v
     return s
 }
-func (s *TaobaoTbkScOrderDetailsGetPublisherOrderDto) SetItemId(v string) *TaobaoTbkScOrderDetailsGetPublisherOrderDto {
+func (s *TaobaoTbkScOrderDetailsGetPublisherOrderDto) SetItemId(v interface{}) *TaobaoTbkScOrderDetailsGetPublisherOrderDto {
     s.ItemId = &v
     return s
 }

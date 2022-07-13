@@ -200,7 +200,7 @@ type TaobaoTbkScMaterialOptionalMapData struct {
 
     /*
         商品信息-宝贝id     */
-    ItemId  *string `json:"item_id,omitempty" `
+    ItemId  *interface{} `json:"item_id,omitempty" `
 
     /*
         商品信息-商品邮费     */
@@ -548,7 +548,7 @@ func (s *TaobaoTbkScMaterialOptionalMapData) SetTmallPlayActivityInfo(v string) 
     s.TmallPlayActivityInfo = &v
     return s
 }
-func (s *TaobaoTbkScMaterialOptionalMapData) SetItemId(v string) *TaobaoTbkScMaterialOptionalMapData {
+func (s *TaobaoTbkScMaterialOptionalMapData) SetItemId(v interface{}) *TaobaoTbkScMaterialOptionalMapData {
     s.ItemId = &v
     return s
 }

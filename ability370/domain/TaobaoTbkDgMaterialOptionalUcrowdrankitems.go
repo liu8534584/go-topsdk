@@ -12,7 +12,7 @@ type TaobaoTbkDgMaterialOptionalUcrowdrankitems struct {
 
     /*
         物料评估-商品ID，material_id=41377时必填     */
-    ItemId  *string `json:"item_id,omitempty" `
+    ItemId  *interface{} `json:"item_id,omitempty" `
 
 }
 
@@ -24,7 +24,7 @@ func (s *TaobaoTbkDgMaterialOptionalUcrowdrankitems) SetPrice(v string) *TaobaoT
     s.Price = &v
     return s
 }
-func (s *TaobaoTbkDgMaterialOptionalUcrowdrankitems) SetItemId(v string) *TaobaoTbkDgMaterialOptionalUcrowdrankitems {
+func (s *TaobaoTbkDgMaterialOptionalUcrowdrankitems) SetItemId(v interface{}) *TaobaoTbkDgMaterialOptionalUcrowdrankitems {
     s.ItemId = &v
     return s
 }
