@@ -374,7 +374,7 @@ func (s *TaobaoTbkDgMaterialOptionalMapData) SetCouponId(v string) *TaobaoTbkDgM
 	s.CouponId = &v
 	return s
 }
-func (s *TaobaoTbkDgMaterialOptionalMapData) SetNumIid(v int64) *TaobaoTbkDgMaterialOptionalMapData {
+func (s *TaobaoTbkDgMaterialOptionalMapData) SetNumIid(v interface{}) *TaobaoTbkDgMaterialOptionalMapData {
 	s.NumIid = &v
 	return s
 }
