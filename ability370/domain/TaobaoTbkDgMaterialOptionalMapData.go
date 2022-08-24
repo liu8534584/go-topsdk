@@ -378,6 +378,7 @@ func (s *TaobaoTbkDgMaterialOptionalMapData) SetNumIid(v interface{}) *TaobaoTbk
 	s.NumIid = &v
 	return s
 }
+
 func (s *TaobaoTbkDgMaterialOptionalMapData) SetTitle(v string) *TaobaoTbkDgMaterialOptionalMapData {
 	s.Title = &v
 	return s
