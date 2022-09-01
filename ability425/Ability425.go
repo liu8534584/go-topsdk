@@ -2,11 +2,11 @@ package ability425
 
 import (
 	"errors"
-	"github.com/liu8534584/topsdk"
-	"github.com/liu8534584/topsdk/ability425/request"
-	"github.com/liu8534584/topsdk/ability425/response"
-	"github.com/liu8534584/topsdk/util"
 	"log"
+	"topsdk"
+	"topsdk/ability425/request"
+	"topsdk/ability425/response"
+	"topsdk/util"
 )
 
 type Ability425 struct {
@@ -27,7 +27,7 @@ func (ability *Ability425) TaobaoTbkScInvitecodeGet(req *request.TaobaoTbkScInvi
 	var jsonStr, err = ability.Client.ExecuteWithSession("taobao.tbk.sc.invitecode.get", req.ToMap(), req.ToFileMap(), session)
 	var respStruct = response.TaobaoTbkScInvitecodeGetResponse{}
 	if err != nil {
-		log.Fatal("taobaoTbkScInvitecodeGet error", err)
+		log.Println("taobaoTbkScInvitecodeGet error", err)
 		return &respStruct, err
 	}
 	err = util.HandleJsonResponse(jsonStr, &respStruct)
@@ -47,7 +47,7 @@ func (ability *Ability425) TaobaoTbkScPublisherInfoSave(req *request.TaobaoTbkSc
 	var jsonStr, err = ability.Client.ExecuteWithSession("taobao.tbk.sc.publisher.info.save", req.ToMap(), req.ToFileMap(), session)
 	var respStruct = response.TaobaoTbkScPublisherInfoSaveResponse{}
 	if err != nil {
-		log.Fatal("taobaoTbkScPublisherInfoSave error", err)
+		log.Println("taobaoTbkScPublisherInfoSave error", err)
 		return &respStruct, err
 	}
 	err = util.HandleJsonResponse(jsonStr, &respStruct)
@@ -67,7 +67,7 @@ func (ability *Ability425) TaobaoTbkScPublisherInfoGet(req *request.TaobaoTbkScP
 	var jsonStr, err = ability.Client.ExecuteWithSession("taobao.tbk.sc.publisher.info.get", req.ToMap(), req.ToFileMap(), session)
 	var respStruct = response.TaobaoTbkScPublisherInfoGetResponse{}
 	if err != nil {
-		log.Fatal("taobaoTbkScPublisherInfoGet error", err)
+		log.Println("taobaoTbkScPublisherInfoGet error", err)
 		return &respStruct, err
 	}
 	err = util.HandleJsonResponse(jsonStr, &respStruct)

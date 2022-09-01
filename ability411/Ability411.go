@@ -2,11 +2,11 @@ package ability411
 
 import (
 	"errors"
-	"github.com/liu8534584/topsdk"
-	"github.com/liu8534584/topsdk/ability411/request"
-	"github.com/liu8534584/topsdk/ability411/response"
-	"github.com/liu8534584/topsdk/util"
 	"log"
+	"topsdk"
+	"topsdk/ability411/request"
+	"topsdk/ability411/response"
+	"topsdk/util"
 )
 
 type Ability411 struct {
@@ -15,6 +15,26 @@ type Ability411 struct {
 
 func NewAbility411(client *topsdk.TopClient) *Ability411 {
 	return &Ability411{client}
+}
+
+/*
+   淘宝客-服务商-所有订单查询（临时接口）
+*/
+func (ability *Ability411) TaobaoTbkScOrderDetailsTemporaryGet(req *request.TaobaoTbkScOrderDetailsTemporaryGetRequest, session string) (*response.TaobaoTbkScOrderDetailsTemporaryGetResponse, error) {
+	if ability.Client == nil {
+		return nil, errors.New("Ability411 topClient is nil")
+	}
+	var jsonStr, err = ability.Client.ExecuteWithSession("taobao.tbk.sc.order.details.temporary.get", req.ToMap(), req.ToFileMap(), session)
+	var respStruct = response.TaobaoTbkScOrderDetailsTemporaryGetResponse{}
+	if err != nil {
+		log.Println("taobaoTbkScOrderDetailsTemporaryGet error", err)
+		return &respStruct, err
+	}
+	err = util.HandleJsonResponse(jsonStr, &respStruct)
+	if respStruct.Body == "" || len(respStruct.Body) == 0 {
+		respStruct.Body = jsonStr
+	}
+	return &respStruct, err
 }
 
 /*
@@ -27,7 +47,27 @@ func (ability *Ability411) TaobaoTbkScRelationRefund(req *request.TaobaoTbkScRel
 	var jsonStr, err = ability.Client.ExecuteWithSession("taobao.tbk.sc.relation.refund", req.ToMap(), req.ToFileMap(), session)
 	var respStruct = response.TaobaoTbkScRelationRefundResponse{}
 	if err != nil {
-		log.Fatal("taobaoTbkScRelationRefund error", err)
+		log.Println("taobaoTbkScRelationRefund error", err)
+		return &respStruct, err
+	}
+	err = util.HandleJsonResponse(jsonStr, &respStruct)
+	if respStruct.Body == "" || len(respStruct.Body) == 0 {
+		respStruct.Body = jsonStr
+	}
+	return &respStruct, err
+}
+
+/*
+   工具服务商member组查询、新增接口
+*/
+func (ability *Ability411) TaobaoTbkScMembergroupOptional(req *request.TaobaoTbkScMembergroupOptionalRequest) (*response.TaobaoTbkScMembergroupOptionalResponse, error) {
+	if ability.Client == nil {
+		return nil, errors.New("Ability411 topClient is nil")
+	}
+	var jsonStr, err = ability.Client.Execute("taobao.tbk.sc.membergroup.optional", req.ToMap(), req.ToFileMap())
+	var respStruct = response.TaobaoTbkScMembergroupOptionalResponse{}
+	if err != nil {
+		log.Println("taobaoTbkScMembergroupOptional error", err)
 		return &respStruct, err
 	}
 	err = util.HandleJsonResponse(jsonStr, &respStruct)
@@ -47,7 +87,7 @@ func (ability *Ability411) TaobaoTbkScOrderDetailsGet(req *request.TaobaoTbkScOr
 	var jsonStr, err = ability.Client.ExecuteWithSession("taobao.tbk.sc.order.details.get", req.ToMap(), req.ToFileMap(), session)
 	var respStruct = response.TaobaoTbkScOrderDetailsGetResponse{}
 	if err != nil {
-		log.Fatal("taobaoTbkScOrderDetailsGet error", err)
+		log.Println("taobaoTbkScOrderDetailsGet error", err)
 		return &respStruct, err
 	}
 	err = util.HandleJsonResponse(jsonStr, &respStruct)

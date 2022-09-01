@@ -2,11 +2,11 @@ package ability375
 
 import (
 	"errors"
-	"github.com/liu8534584/topsdk"
-	"github.com/liu8534584/topsdk/ability375/request"
-	"github.com/liu8534584/topsdk/ability375/response"
-	"github.com/liu8534584/topsdk/util"
 	"log"
+	"topsdk"
+	"topsdk/ability375/request"
+	"topsdk/ability375/response"
+	"topsdk/util"
 )
 
 type Ability375 struct {
@@ -27,7 +27,7 @@ func (ability *Ability375) TaobaoTbkTpwdCreate(req *request.TaobaoTbkTpwdCreateR
 	var jsonStr, err = ability.Client.Execute("taobao.tbk.tpwd.create", req.ToMap(), req.ToFileMap())
 	var respStruct = response.TaobaoTbkTpwdCreateResponse{}
 	if err != nil {
-		log.Fatal("taobaoTbkTpwdCreate error", err)
+		log.Println("taobaoTbkTpwdCreate error", err)
 		return &respStruct, err
 	}
 	err = util.HandleJsonResponse(jsonStr, &respStruct)

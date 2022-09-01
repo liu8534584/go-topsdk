@@ -2,11 +2,11 @@ package ability304
 
 import (
 	"errors"
-	"github.com/liu8534584/topsdk"
-	"github.com/liu8534584/topsdk/ability304/request"
-	"github.com/liu8534584/topsdk/ability304/response"
-	"github.com/liu8534584/topsdk/util"
 	"log"
+	"topsdk"
+	"topsdk/ability304/request"
+	"topsdk/ability304/response"
+	"topsdk/util"
 )
 
 type Ability304 struct {
@@ -27,7 +27,7 @@ func (ability *Ability304) TaobaoOpenuidGet(req *request.TaobaoOpenuidGetRequest
 	var jsonStr, err = ability.Client.ExecuteWithSession("taobao.openuid.get", req.ToMap(), req.ToFileMap(), session)
 	var respStruct = response.TaobaoOpenuidGetResponse{}
 	if err != nil {
-		log.Fatal("taobaoOpenuidGet error", err)
+		log.Println("taobaoOpenuidGet error", err)
 		return &respStruct, err
 	}
 	err = util.HandleJsonResponse(jsonStr, &respStruct)
@@ -47,7 +47,7 @@ func (ability *Ability304) TaobaoOpenuidGetBytrade(req *request.TaobaoOpenuidGet
 	var jsonStr, err = ability.Client.ExecuteWithSession("taobao.openuid.get.bytrade", req.ToMap(), req.ToFileMap(), session)
 	var respStruct = response.TaobaoOpenuidGetBytradeResponse{}
 	if err != nil {
-		log.Fatal("taobaoOpenuidGetBytrade error", err)
+		log.Println("taobaoOpenuidGetBytrade error", err)
 		return &respStruct, err
 	}
 	err = util.HandleJsonResponse(jsonStr, &respStruct)
@@ -67,7 +67,7 @@ func (ability *Ability304) TaobaoTopSecretGet(req *request.TaobaoTopSecretGetReq
 	var jsonStr, err = ability.Client.Execute("taobao.top.secret.get", req.ToMap(), req.ToFileMap())
 	var respStruct = response.TaobaoTopSecretGetResponse{}
 	if err != nil {
-		log.Fatal("taobaoTopSecretGet error", err)
+		log.Println("taobaoTopSecretGet error", err)
 		return &respStruct, err
 	}
 	err = util.HandleJsonResponse(jsonStr, &respStruct)
@@ -87,7 +87,7 @@ func (ability *Ability304) TaobaoOpenuidGetBymixnick(req *request.TaobaoOpenuidG
 	var jsonStr, err = ability.Client.Execute("taobao.openuid.get.bymixnick", req.ToMap(), req.ToFileMap())
 	var respStruct = response.TaobaoOpenuidGetBymixnickResponse{}
 	if err != nil {
-		log.Fatal("taobaoOpenuidGetBymixnick error", err)
+		log.Println("taobaoOpenuidGetBymixnick error", err)
 		return &respStruct, err
 	}
 	err = util.HandleJsonResponse(jsonStr, &respStruct)
@@ -107,7 +107,7 @@ func (ability *Ability304) TaobaoFilesGet(req *request.TaobaoFilesGetRequest) (*
 	var jsonStr, err = ability.Client.Execute("taobao.files.get", req.ToMap(), req.ToFileMap())
 	var respStruct = response.TaobaoFilesGetResponse{}
 	if err != nil {
-		log.Fatal("taobaoFilesGet error", err)
+		log.Println("taobaoFilesGet error", err)
 		return &respStruct, err
 	}
 	err = util.HandleJsonResponse(jsonStr, &respStruct)
@@ -127,7 +127,7 @@ func (ability *Ability304) TaobaoTopAuthTokenRefresh(req *request.TaobaoTopAuthT
 	var jsonStr, err = ability.Client.Execute("taobao.top.auth.token.refresh", req.ToMap(), req.ToFileMap())
 	var respStruct = response.TaobaoTopAuthTokenRefreshResponse{}
 	if err != nil {
-		log.Fatal("taobaoTopAuthTokenRefresh error", err)
+		log.Println("taobaoTopAuthTokenRefresh error", err)
 		return &respStruct, err
 	}
 	err = util.HandleJsonResponse(jsonStr, &respStruct)
@@ -147,7 +147,7 @@ func (ability *Ability304) TaobaoTopSdkFeedbackUpload(req *request.TaobaoTopSdkF
 	var jsonStr, err = ability.Client.Execute("taobao.top.sdk.feedback.upload", req.ToMap(), req.ToFileMap())
 	var respStruct = response.TaobaoTopSdkFeedbackUploadResponse{}
 	if err != nil {
-		log.Fatal("taobaoTopSdkFeedbackUpload error", err)
+		log.Println("taobaoTopSdkFeedbackUpload error", err)
 		return &respStruct, err
 	}
 	err = util.HandleJsonResponse(jsonStr, &respStruct)

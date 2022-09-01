@@ -2,11 +2,11 @@ package ability2153
 
 import (
 	"errors"
-	"github.com/liu8534584/topsdk"
-	"github.com/liu8534584/topsdk/ability2153/request"
-	"github.com/liu8534584/topsdk/ability2153/response"
-	"github.com/liu8534584/topsdk/util"
 	"log"
+	"topsdk"
+	"topsdk/ability2153/request"
+	"topsdk/ability2153/response"
+	"topsdk/util"
 )
 
 type Ability2153 struct {
@@ -27,7 +27,7 @@ func (ability *Ability2153) TaobaoTbkScOptimusPromotion(req *request.TaobaoTbkSc
 	var jsonStr, err = ability.Client.ExecuteWithSession("taobao.tbk.sc.optimus.promotion", req.ToMap(), req.ToFileMap(), session)
 	var respStruct = response.TaobaoTbkScOptimusPromotionResponse{}
 	if err != nil {
-		log.Fatal("taobaoTbkScOptimusPromotion error", err)
+		log.Println("taobaoTbkScOptimusPromotion error", err)
 		return &respStruct, err
 	}
 	err = util.HandleJsonResponse(jsonStr, &respStruct)
@@ -47,7 +47,7 @@ func (ability *Ability2153) TaobaoTbkScOptimusMaterial(req *request.TaobaoTbkScO
 	var jsonStr, err = ability.Client.ExecuteWithSession("taobao.tbk.sc.optimus.material", req.ToMap(), req.ToFileMap(), session)
 	var respStruct = response.TaobaoTbkScOptimusMaterialResponse{}
 	if err != nil {
-		log.Fatal("taobaoTbkScOptimusMaterial error", err)
+		log.Println("taobaoTbkScOptimusMaterial error", err)
 		return &respStruct, err
 	}
 	err = util.HandleJsonResponse(jsonStr, &respStruct)

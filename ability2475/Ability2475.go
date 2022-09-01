@@ -2,11 +2,11 @@ package ability2475
 
 import (
 	"errors"
-	"github.com/liu8534584/topsdk"
-	"github.com/liu8534584/topsdk/ability2475/request"
-	"github.com/liu8534584/topsdk/ability2475/response"
-	"github.com/liu8534584/topsdk/util"
 	"log"
+	"topsdk"
+	"topsdk/ability2475/request"
+	"topsdk/ability2475/response"
+	"topsdk/util"
 )
 
 type Ability2475 struct {
@@ -27,7 +27,7 @@ func (ability *Ability2475) TaobaoTbkScVegasSendReport(req *request.TaobaoTbkScV
 	var jsonStr, err = ability.Client.ExecuteWithSession("taobao.tbk.sc.vegas.send.report", req.ToMap(), req.ToFileMap(), session)
 	var respStruct = response.TaobaoTbkScVegasSendReportResponse{}
 	if err != nil {
-		log.Fatal("taobaoTbkScVegasSendReport error", err)
+		log.Println("taobaoTbkScVegasSendReport error", err)
 		return &respStruct, err
 	}
 	err = util.HandleJsonResponse(jsonStr, &respStruct)

@@ -2,11 +2,11 @@ package ability376
 
 import (
 	"errors"
-	"github.com/liu8534584/topsdk"
-	"github.com/liu8534584/topsdk/ability376/request"
-	"github.com/liu8534584/topsdk/ability376/response"
-	"github.com/liu8534584/topsdk/util"
 	"log"
+	"topsdk"
+	"topsdk/ability376/request"
+	"topsdk/ability376/response"
+	"topsdk/util"
 )
 
 type Ability376 struct {
@@ -27,7 +27,7 @@ func (ability *Ability376) TaobaoTbkSpreadGet(req *request.TaobaoTbkSpreadGetReq
 	var jsonStr, err = ability.Client.Execute("taobao.tbk.spread.get", req.ToMap(), req.ToFileMap())
 	var respStruct = response.TaobaoTbkSpreadGetResponse{}
 	if err != nil {
-		log.Fatal("taobaoTbkSpreadGet error", err)
+		log.Println("taobaoTbkSpreadGet error", err)
 		return &respStruct, err
 	}
 	err = util.HandleJsonResponse(jsonStr, &respStruct)

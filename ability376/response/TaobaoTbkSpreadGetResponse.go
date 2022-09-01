@@ -1,7 +1,7 @@
 package response
 
 import (
-	"github.com/liu8534584/topsdk/ability376/domain"
+	"topsdk/ability376/domain"
 )
 
 type TaobaoTbkSpreadGetResponse struct {

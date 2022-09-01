@@ -1,7 +1,7 @@
 package response
 
 import (
-	"github.com/liu8534584/topsdk/ability1556/domain"
+	"topsdk/ability1556/domain"
 )
 
 type TaobaoTbkScMaterialOptionalResponse struct {

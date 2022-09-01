@@ -1,7 +1,7 @@
 package response
 
 import (
-	"github.com/liu8534584/topsdk/ability411/domain"
+	"topsdk/ability411/domain"
 )
 
 type TaobaoTbkScRelationRefundResponse struct {

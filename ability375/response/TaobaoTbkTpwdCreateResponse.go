@@ -1,7 +1,7 @@
 package response
 
 import (
-	"github.com/liu8534584/topsdk/ability375/domain"
+	"topsdk/ability375/domain"
 )
 
 type TaobaoTbkTpwdCreateResponse struct {

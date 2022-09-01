@@ -1,8 +1,8 @@
 package request
 
 import (
-	"github.com/liu8534584/topsdk/ability411/domain"
-	"github.com/liu8534584/topsdk/util"
+	"topsdk/ability411/domain"
+	"topsdk/util"
 )
 
 type TaobaoTbkScRelationRefundRequest struct {

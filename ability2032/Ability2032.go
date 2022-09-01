@@ -2,11 +2,11 @@ package ability2032
 
 import (
 	"errors"
-	"github.com/liu8534584/topsdk"
-	"github.com/liu8534584/topsdk/ability2032/request"
-	"github.com/liu8534584/topsdk/ability2032/response"
-	"github.com/liu8534584/topsdk/util"
 	"log"
+	"topsdk"
+	"topsdk/ability2032/request"
+	"topsdk/ability2032/response"
+	"topsdk/util"
 )
 
 type Ability2032 struct {
@@ -27,7 +27,7 @@ func (ability *Ability2032) TaobaoTbkScPunishOrderGet(req *request.TaobaoTbkScPu
 	var jsonStr, err = ability.Client.ExecuteWithSession("taobao.tbk.sc.punish.order.get", req.ToMap(), req.ToFileMap(), session)
 	var respStruct = response.TaobaoTbkScPunishOrderGetResponse{}
 	if err != nil {
-		log.Fatal("taobaoTbkScPunishOrderGet error", err)
+		log.Println("taobaoTbkScPunishOrderGet error", err)
 		return &respStruct, err
 	}
 	err = util.HandleJsonResponse(jsonStr, &respStruct)

@@ -1,8 +1,8 @@
 package request
 
 import (
-	"github.com/liu8534584/topsdk/ability1556/domain"
-	"github.com/liu8534584/topsdk/util"
+	"topsdk/ability1556/domain"
+	"topsdk/util"
 )
 
 type TaobaoTbkScMaterialOptionalRequest struct {
@@ -11,10 +11,10 @@ type TaobaoTbkScMaterialOptionalRequest struct {
 	StartDsr *int32 `json:"start_dsr,omitempty" required:"false" `
 	/*
 	   页大小，默认20，1~100 defalutValue��20    */
-	PageSize *int64 `json:"page_size,omitempty" required:"false" `
+	PageSize *int32 `json:"page_size,omitempty" required:"false" `
 	/*
 	   第几页，默认：１ defalutValue��1    */
-	PageNo *int64 `json:"page_no,omitempty" required:"false" `
+	PageNo *int32 `json:"page_no,omitempty" required:"false" `
 	/*
 	   链接形式-1：PC，2：无线，默认为１ defalutValue��1    */
 	Platform *int32 `json:"platform,omitempty" required:"false" `
@@ -132,17 +132,23 @@ type TaobaoTbkScMaterialOptionalRequest struct {
 	/*
 	   是否获取前N件佣金信息，0否，1是，其他值否     */
 	GetTopnRate *int32 `json:"get_topn_rate,omitempty" required:"false" `
+	/*
+	   1-动态ID转链场景，2-消费者比价场景，3-商品库导购场景（不填默认为1）     */
+	BizSceneId *string `json:"biz_scene_id,omitempty" required:"false" `
+	/*
+	   1-自购省，2-推广赚（代理模式专属ID，代理模式必填，非代理模式不用填写该字段）     */
+	PromotionType *string `json:"promotion_type,omitempty" required:"false" `
 }
 
 func (s *TaobaoTbkScMaterialOptionalRequest) SetStartDsr(v int32) *TaobaoTbkScMaterialOptionalRequest {
 	s.StartDsr = &v
 	return s
 }
-func (s *TaobaoTbkScMaterialOptionalRequest) SetPageSize(v int64) *TaobaoTbkScMaterialOptionalRequest {
+func (s *TaobaoTbkScMaterialOptionalRequest) SetPageSize(v int32) *TaobaoTbkScMaterialOptionalRequest {
 	s.PageSize = &v
 	return s
 }
-func (s *TaobaoTbkScMaterialOptionalRequest) SetPageNo(v int64) *TaobaoTbkScMaterialOptionalRequest {
+func (s *TaobaoTbkScMaterialOptionalRequest) SetPageNo(v int32) *TaobaoTbkScMaterialOptionalRequest {
 	s.PageNo = &v
 	return s
 }
@@ -302,6 +308,14 @@ func (s *TaobaoTbkScMaterialOptionalRequest) SetGetTopnRate(v int32) *TaobaoTbkS
 	s.GetTopnRate = &v
 	return s
 }
+func (s *TaobaoTbkScMaterialOptionalRequest) SetBizSceneId(v string) *TaobaoTbkScMaterialOptionalRequest {
+	s.BizSceneId = &v
+	return s
+}
+func (s *TaobaoTbkScMaterialOptionalRequest) SetPromotionType(v string) *TaobaoTbkScMaterialOptionalRequest {
+	s.PromotionType = &v
+	return s
+}
 
 func (req *TaobaoTbkScMaterialOptionalRequest) ToMap() map[string]interface{} {
 	paramMap := make(map[string]interface{})
@@ -430,6 +444,12 @@ func (req *TaobaoTbkScMaterialOptionalRequest) ToMap() map[string]interface{} {
 	}
 	if req.GetTopnRate != nil {
 		paramMap["get_topn_rate"] = *req.GetTopnRate
+	}
+	if req.BizSceneId != nil {
+		paramMap["biz_scene_id"] = *req.BizSceneId
+	}
+	if req.PromotionType != nil {
+		paramMap["promotion_type"] = *req.PromotionType
 	}
 	return paramMap
 }

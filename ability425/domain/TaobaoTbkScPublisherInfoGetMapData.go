@@ -1,7 +1,7 @@
 package domain
 
 import (
-	"github.com/liu8534584/topsdk/util"
+	"topsdk/util"
 )
 
 type TaobaoTbkScPublisherInfoGetMapData struct {
@@ -18,7 +18,7 @@ type TaobaoTbkScPublisherInfoGetMapData struct {
 	AccountName *string `json:"account_name,omitempty" `
 
 	/*
-	   渠道独有 - 渠道姓名     */
+	   渠道独有 - 渠道名称     */
 	RealName *string `json:"real_name,omitempty" `
 
 	/*
@@ -58,7 +58,7 @@ type TaobaoTbkScPublisherInfoGetMapData struct {
 	PunishStatus *string `json:"punish_status,omitempty" `
 
 	/*
-	   淘宝客外部用户标记，如自身系统账户ID；微信ID等     */
+	   淘宝客外部用户标记     */
 	ExternalId *string `json:"external_id,omitempty" `
 
 	/*

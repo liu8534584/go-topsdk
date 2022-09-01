@@ -2,11 +2,11 @@ package ability2553
 
 import (
 	"errors"
-	"github.com/liu8534584/topsdk"
-	"github.com/liu8534584/topsdk/ability2553/request"
-	"github.com/liu8534584/topsdk/ability2553/response"
-	"github.com/liu8534584/topsdk/util"
 	"log"
+	"topsdk"
+	"topsdk/ability2553/request"
+	"topsdk/ability2553/response"
+	"topsdk/util"
 )
 
 type Ability2553 struct {
@@ -27,7 +27,7 @@ func (ability *Ability2553) TaobaoTbkScActivityInfoGet(req *request.TaobaoTbkScA
 	var jsonStr, err = ability.Client.ExecuteWithSession("taobao.tbk.sc.activity.info.get", req.ToMap(), req.ToFileMap(), session)
 	var respStruct = response.TaobaoTbkScActivityInfoGetResponse{}
 	if err != nil {
-		log.Fatal("taobaoTbkScActivityInfoGet error", err)
+		log.Println("taobaoTbkScActivityInfoGet error", err)
 		return &respStruct, err
 	}
 	err = util.HandleJsonResponse(jsonStr, &respStruct)
