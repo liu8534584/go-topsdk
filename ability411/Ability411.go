@@ -2,11 +2,11 @@ package ability411
 
 import (
 	"errors"
+	"github.com/liu8534584/topsdk"
+	"github.com/liu8534584/topsdk/ability411/request"
+	"github.com/liu8534584/topsdk/ability411/response"
+	"github.com/liu8534584/topsdk/util"
 	"log"
-	"topsdk"
-	"topsdk/ability411/request"
-	"topsdk/ability411/response"
-	"topsdk/util"
 )
 
 type Ability411 struct {

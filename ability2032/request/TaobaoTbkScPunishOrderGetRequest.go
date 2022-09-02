@@ -1,8 +1,8 @@
 package request
 
 import (
-	"topsdk/ability2032/domain"
-	"topsdk/util"
+	"github.com/liu8534584/topsdk/ability2032/domain"
+	"github.com/liu8534584/topsdk/util"
 )
 
 type TaobaoTbkScPunishOrderGetRequest struct {

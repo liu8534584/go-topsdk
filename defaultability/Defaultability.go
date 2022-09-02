@@ -2,11 +2,11 @@ package defaultability
 
 import (
 	"errors"
+	"github.com/liu8534584/topsdk"
+	"github.com/liu8534584/topsdk/defaultability/request"
+	"github.com/liu8534584/topsdk/defaultability/response"
+	"github.com/liu8534584/topsdk/util"
 	"log"
-	"topsdk"
-	"topsdk/defaultability/request"
-	"topsdk/defaultability/response"
-	"topsdk/util"
 )
 
 type Defaultability struct {

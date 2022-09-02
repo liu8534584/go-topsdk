@@ -2,11 +2,11 @@ package ability304
 
 import (
 	"errors"
+	"github.com/liu8534584/topsdk"
+	"github.com/liu8534584/topsdk/ability304/request"
+	"github.com/liu8534584/topsdk/ability304/response"
+	"github.com/liu8534584/topsdk/util"
 	"log"
-	"topsdk"
-	"topsdk/ability304/request"
-	"topsdk/ability304/response"
-	"topsdk/util"
 )
 
 type Ability304 struct {

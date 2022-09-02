@@ -1,7 +1,7 @@
 package response
 
 import (
-	"topsdk/defaultability/domain"
+	"github.com/liu8534584/topsdk/defaultability/domain"
 )
 
 type TaobaoTbkItemidTemporaryTransformResponse struct {

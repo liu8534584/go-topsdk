@@ -1,7 +1,7 @@
 package response
 
 import (
-	"topsdk/ability425/domain"
+	"github.com/liu8534584/topsdk/ability425/domain"
 )
 
 type TaobaoTbkScPublisherInfoSaveResponse struct {

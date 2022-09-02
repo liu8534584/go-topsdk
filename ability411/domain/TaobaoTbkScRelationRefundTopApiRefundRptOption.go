@@ -1,7 +1,7 @@
 package domain
 
 import (
-	"topsdk/util"
+	"github.com/liu8534584/topsdk/util"
 )
 
 type TaobaoTbkScRelationRefundTopApiRefundRptOption struct {

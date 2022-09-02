@@ -1,7 +1,7 @@
 package response
 
 import (
-	"topsdk/ability2153/domain"
+	"github.com/liu8534584/topsdk/ability2153/domain"
 )
 
 type TaobaoTbkScOptimusPromotionResponse struct {

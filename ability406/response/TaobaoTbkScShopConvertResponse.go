@@ -1,7 +1,7 @@
 package response
 
 import (
-	"topsdk/ability406/domain"
+	"github.com/liu8534584/topsdk/ability406/domain"
 )
 
 type TaobaoTbkScShopConvertResponse struct {

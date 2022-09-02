@@ -2,11 +2,11 @@ package ability371
 
 import (
 	"errors"
+	"github.com/liu8534584/topsdk"
+	"github.com/liu8534584/topsdk/ability371/request"
+	"github.com/liu8534584/topsdk/ability371/response"
+	"github.com/liu8534584/topsdk/util"
 	"log"
-	"topsdk"
-	"topsdk/ability371/request"
-	"topsdk/ability371/response"
-	"topsdk/util"
 )
 
 type Ability371 struct {

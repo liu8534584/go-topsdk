@@ -3,6 +3,7 @@ package topsdk
 import (
 	"bytes"
 	"fmt"
+	"github.com/liu8534584/topsdk/util"
 	"io"
 	"io/ioutil"
 	"log"
@@ -12,7 +13,6 @@ import (
 	"net/url"
 	"strings"
 	"time"
-	"topsdk/util"
 )
 
 type TopClient struct {
