@@ -12,7 +12,7 @@ type TaobaoTbkScOptimusPromotionRequest struct {
         mm_xxx_xxx_xxx的第3段数字     */
     AdzoneId  *int64 `json:"adzone_id" required:"true" `
     /*
-        官方提供的权益物料Id。有价券-37104、大额店铺券-37116，更多权益物料id敬请期待！     */
+        官方提供的权益物料Id。有价券-37104、大额店铺券-37116、天猫店铺券-62191、券券补-61809 更多权益物料id敬请期待！     */
     PromotionId  *int64 `json:"promotion_id" required:"true" `
     /*
         mm_xxx_xxx_xxx的第2段数字     */

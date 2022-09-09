@@ -1,23 +1,23 @@
 package response
 
 import (
-	"github.com/liu8534584/topsdk/ability371/domain"
+    "github.com/liu8534584/topsdk/ability371/domain"
 )
 
 type TaobaoTbkItemInfoGetResponse struct {
 
-	/*
-	   System request id
-	*/
-	RequestId string `json:"request_id,omitempty" `
+    /*
+        System request id
+    */
+    RequestId string `json:"request_id,omitempty" `
 
-	/*
-	   System body
-	*/
-	Body string
+    /*
+        System body
+    */
+    Body string
 
-	/*
-	   淘宝客商品
-	*/
-	Results []domain.TaobaoTbkItemInfoGetNTbkItem `json:"results,omitempty" `
+    /*
+        淘宝客商品
+    */
+    Results  []domain.TaobaoTbkItemInfoGetNTbkItem `json:"results,omitempty" `
 }

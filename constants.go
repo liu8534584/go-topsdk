@@ -1,11 +1,11 @@
 package topsdk
 
 /**
-sdk使用常量，请勿修改
-*/
+ sdk使用常量，请勿修改
+ */
 const (
 	// SdkVersion 版本号
-	SdkVersion = "new_go_sdk_20220901"
+	SdkVersion = "new_go_sdk_20220909"
 
 	// ApiFormat api格式
 	ApiFormat = "json"
@@ -18,4 +18,5 @@ const (
 
 	// DateFormat 日期格式
 	DateFormat = "2006-01-02 15:04:05"
+
 )

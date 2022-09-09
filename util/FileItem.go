@@ -1,9 +1,11 @@
 package util
 
 type FileItem struct {
+
 	FileName string
 
 	Content []byte
+
 }
 
 func (s *FileItem) SetFileName(v string) *FileItem {
@@ -16,5 +18,5 @@ func (s *FileItem) SetContent(v []byte) *FileItem {
 }
 
 func NewFileItem(fileName string, content []byte) *FileItem {
-	return &FileItem{FileName: fileName, Content: content}
+	return &FileItem{FileName: fileName,Content: content}
 }
