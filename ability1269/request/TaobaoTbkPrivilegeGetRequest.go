@@ -83,6 +83,11 @@ func (s *TaobaoTbkPrivilegeGetRequest) SetMiniProgramLink(v int64) *TaobaoTbkPri
 	return s
 }
 
+func (s *TaobaoTbkPrivilegeGetRequest) SetBizSceneId(v string) *TaobaoTbkPrivilegeGetRequest {
+	s.BizSceneId = &v
+	return s
+}
+
 func (req *TaobaoTbkPrivilegeGetRequest) ToMap() map[string]interface{} {
 	paramMap := make(map[string]interface{})
 	if req.AdzoneId != nil {
@@ -117,6 +122,10 @@ func (req *TaobaoTbkPrivilegeGetRequest) ToMap() map[string]interface{} {
 	}
 	if req.MiniProgramLink != nil {
 		paramMap["mini_program_link"] = *req.MiniProgramLink
+	}
+
+	if req.BizSceneId != nil {
+		paramMap["biz_scene_id"] = *req.BizSceneId
 	}
 	return paramMap
 }
