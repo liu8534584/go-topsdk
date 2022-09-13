@@ -36,6 +36,8 @@ type TaobaoTbkPrivilegeGetRequest struct {
 	MiniProgramLink *int64 `json:"mini_program_link,omitempty" required:"false" `
 
 	BizSceneId *string `json:"biz_scene_id,omitempty" required:"false"`
+
+	PromotionType *string `json:"promotion_type" required:"false"`
 }
 
 func (s *TaobaoTbkPrivilegeGetRequest) SetAdzoneId(v int64) *TaobaoTbkPrivilegeGetRequest {
@@ -88,6 +90,11 @@ func (s *TaobaoTbkPrivilegeGetRequest) SetBizSceneId(v string) *TaobaoTbkPrivile
 	return s
 }
 
+func (s *TaobaoTbkPrivilegeGetRequest) SetPromotionType(v string) *TaobaoTbkPrivilegeGetRequest {
+	s.PromotionType = &v
+	return s
+}
+
 func (req *TaobaoTbkPrivilegeGetRequest) ToMap() map[string]interface{} {
 	paramMap := make(map[string]interface{})
 	if req.AdzoneId != nil {
@@ -126,6 +133,9 @@ func (req *TaobaoTbkPrivilegeGetRequest) ToMap() map[string]interface{} {
 
 	if req.BizSceneId != nil {
 		paramMap["biz_scene_id"] = *req.BizSceneId
+	}
+	if req.PromotionType != nil {
+		paramMap["promotion_type"] = *req.PromotionType
 	}
 	return paramMap
 }
