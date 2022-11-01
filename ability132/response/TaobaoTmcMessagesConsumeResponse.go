@@ -1,7 +1,7 @@
 package response
 
 import (
-	"topsdk/ability132/domain"
+	"github.com/liu8534584/topsdk/ability132/domain"
 )
 
 type TaobaoTmcMessagesConsumeResponse struct {

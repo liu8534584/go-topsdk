@@ -1,7 +1,7 @@
 package request
 
 import (
-	"topsdk/util"
+	"github.com/liu8534584/topsdk/util"
 )
 
 type TaobaoTmcGroupAddRequest struct {
