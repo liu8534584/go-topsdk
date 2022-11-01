@@ -1,9 +1,5 @@
 package request
 
-import (
-	"github.com/liu8534584/topsdk/util"
-)
-
 type TaobaoTmcMessageProduceRequest struct {
 	/*
 	   消息内容的JSON表述，必须按照topic的定义来填充     */

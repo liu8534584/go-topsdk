@@ -1,9 +1,5 @@
 package response
 
-import (
-	"github.com/liu8534584/topsdk/defaultability/domain"
-)
-
 type TaobaoKfcKeywordSearchResponse struct {
 
 	/*
@@ -19,5 +15,5 @@ type TaobaoKfcKeywordSearchResponse struct {
 	/*
 	   KFC 关键词过滤匹配结果
 	*/
-	KfcSearchResult domain.TaobaoKfcKeywordSearchKfcSearchResult `json:"kfc_search_result,omitempty" `
+	KfcSearchResult string `json:"kfc_search_result,omitempty" `
 }
