@@ -19,5 +19,5 @@ type TaobaoTbkScGeneralLinkConvertResponse struct {
 	/*
 	   返回结果封装对象
 	*/
-	Result domain.TaobaoTbkScGeneralLinkConvertResponse `json:"result,omitempty" `
+	Result domain.TaobaoTbkScGeneralLinkConvertResponse `json:"data,omitempty" `
 }
