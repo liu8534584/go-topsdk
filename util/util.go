@@ -69,7 +69,7 @@ func ConvertBasicList(data interface{}) string {
 
 func HandleJsonResponse(jsonStr string, v interface{}) (err error) {
 
-	if strings.Contains(jsonStr[0:20], "error_response") {
+	if len(jsonStr) > 20 && strings.Contains(jsonStr[0:20], "error_response") {
 		err := &TopApiRequestError{}
 		jsonStr = jsonStr[18 : len(jsonStr)-1]
 		err2 := json.Unmarshal([]byte(jsonStr), err)
